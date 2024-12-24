@@ -27,7 +27,7 @@ async def play_music(interaction, video_url):
         await interaction.response.defer()  # 작업 진행 중임을 알림
         user = interaction.user
         if not user.voice or not user.voice.channel:
-            await interaction.followup.send("먼저 음성 채널에 들어가 주세요!")
+            await interaction.followup.send("ㅁ..먼저 음성 채널에 들어가 주ㅅ..세요!")
             return
 
         channel = user.voice.channel
@@ -54,7 +54,7 @@ async def play_music(interaction, video_url):
         await interaction.followup.send(f"오류 발생: {e}")
 
 # 슬래시 명령어: 노래 검색 및 재생
-@bot.tree.command(name="재생", description="유튜브 URL을 통해 노래를 재생합니다.")
+@bot.tree.command(name="재생", description="봇치가 유튜브 URL을 보고 노래를 연주합니다.")
 async def play(interaction: discord.Interaction, url: str):
     await play_music(interaction, url)
 
@@ -78,7 +78,7 @@ async def play_next(interaction, current_info=None):
         if voice_client:
             await voice_client.disconnect()
             channel = interaction.channel
-            await channel.send("대기열이 비어 있어 봇이 음성 채널에서 나갔습니다.")
+            await channel.send("대기열이 비어 있어 봇치가 도망갔습니다.")
 
 # 유튜브 추천 동영상 가져오기
 def get_next_video_url(current_info):
@@ -111,9 +111,9 @@ async def show_queue(interaction: discord.Interaction):
 async def leave(interaction: discord.Interaction):
     if interaction.guild.voice_client:
         await interaction.guild.voice_client.disconnect()
-        await interaction.response.send_message("봇이 음성 채널에서 나갔습니다.")
+        await interaction.response.send_message("봇치가 도망갔습니다.")
     else:
-        await interaction.response.send_message("봇이 음성 채널에 있지 않습니다.")
+        await interaction.response.send_message("봇치가 음성 채널에 있지 않습니다.")
 
 # 슬래시 명령어: 자동 재생 설정 변경
 @bot.tree.command(name="자동재생", description="자동 재생 설정을 켜거나 끕니다.")
@@ -130,8 +130,8 @@ async def toggle_auto_play(interaction: discord.Interaction, 상태: str):
 # 봇 상태 변경
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="홍성인"))
-    print(f"봇이 로그인되었습니다: {bot.user}")
+    await bot.change_presence(activity=discord.Game(name="봇치는 성인이와 연주"))
+    print(f"봇치가 등장했습니다: {bot.user}")
 
 # 봇 실행
 bot.run(TOKEN)
