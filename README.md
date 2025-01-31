@@ -8,44 +8,136 @@
 
 ---
 
-## Features
+## 📜 Features
 
-### 🎵 Music Playback
+### 🎵 **Music Playback**
 - **Play YouTube Videos**: Play audio directly from YouTube links.
 - **Queue Management**: Add songs to the queue and manage the playback order.
 - **Autoplay**: Automatically play recommended videos when the queue is empty.
 - **Skip Songs**: Skip to the next song in the queue.
 - **Custom Song Commands**: Easily play pre-defined favorite songs with commands.
 
-### 🔧 Slash Commands
+### 🔧 **Slash Commands**
 - **/재생**: Play a song using a YouTube URL.
 - **/대기열**: View the current music queue.
 - **/나가기**: Disconnect the bot from the voice channel.
 - **/무리**: Automatically play a predefined song.
 - **/자동재생**: Toggle autoplay (YouTube recommendations).
-- **/control**: Display an interactive music controller.
-
-### ⚡ Interactive Features
-- **Interactive Buttons**: Skip songs using a Discord button-based interface.
-- **Terminal Control**: Control and monitor the bot from your terminal.
-
-### 🛠️ Robust Integration
-- **YouTube Integration**: Fetch YouTube videos using the `yt_dlp` library.
-- **Discord Slash Commands**: Fully integrated with Discord’s modern slash command interface.
-- **Dynamic Queue Playback**: Ensures seamless transitions between queued songs.
 
 ---
 
-## Installation
 
-### Prerequisites
-- Python 3.8+
-- Discord Developer Bot Token
-- FFmpeg installed and added to PATH
-- `yt-dlp` library
+# Setup Guide for Discord_HitoriGotoh Bot
 
-### Steps
-1. Clone the repository:
+This repository contains two setup scripts for installing the Discord_HitoriGotoh bot on different operating systems.
+
+## 📋 Prerequisites
+
+Before running the setup scripts, ensure you have:
+- Git installed
+- Python 3.8 or higher installed
+- Discord Bot Token ready
+- Administrator privileges (for Linux/macOS)
+
+## 🛠️ Setup Scripts
+
+### Windows Users (`setup.bat`)
+
+1. **Download the Script**
+   - Save `setup.bat` to your desired installation directory
+
+2. **Run the Script**
+   ```batch
+   setup.bat
+   ```
+   Or double-click the file in Windows Explorer
+
+### Linux/macOS Users (`setup.sh`)
+
+1. **Download the Script**
+   - Save `setup.sh` to your desired installation directory
+
+2. **Make the Script Executable**
    ```bash
-   git clone https://github.com/your_username/Discord_HitoriGotoh.git
-   cd Discord_HitoriGotoh
+   chmod +x setup.sh
+   ```
+
+3. **Run the Script**
+   ```bash
+   ./setup.sh
+   ```
+
+## 🔄 What the Scripts Do
+
+Both scripts perform the following automated tasks:
+
+1. **Repository Setup**
+   - Clones the Discord_HitoriGotoh repository
+   - Changes to the project directory
+
+2. **FFmpeg Installation**
+   - Checks for FFmpeg installation
+   - Windows: Provides download link if not installed
+   - Linux/macOS: Automatically installs via package manager
+
+3. **Python Environment**
+   - Creates a virtual environment (.venv)
+   - Activates the virtual environment
+   - Upgrades pip to latest version
+
+4. **Dependencies**
+   - Installs required Python packages:
+     - discord.py
+     - yt-dlp
+     - python-dotenv
+
+5. **Configuration**
+   - Creates .env file
+   - Prompts for Discord bot token
+   - Saves token to .env file
+
+## ⚠️ Troubleshooting
+
+### Common Issues
+
+1. **Permission Denied**
+   ```bash
+   # Linux/macOS
+   sudo chmod +x setup.sh
+   ```
+
+2. **FFmpeg Not Found**
+   - Windows: Download manually from [FFmpeg website](https://ffmpeg.org/download.html)
+   - Linux: `sudo apt install ffmpeg`
+   - macOS: `brew install ffmpeg`
+
+3. **Python Not Found**
+   - Ensure Python is installed and added to PATH
+   - Try using `python3` instead of `python` on Linux/macOS
+
+## 📝 Post-Installation
+
+After successful installation:
+
+1. Verify installation:
+   ```bash
+   python bot.py
+   ```
+
+2. The bot should show as online in your Discord server
+
+3. Test basic commands like `/재생` or `/대기열`
+
+## 🔄 Updating
+
+To update the bot:
+
+1. Delete the existing installation
+2. Run the setup script again
+
+## 💡 Additional Notes
+
+- Keep your Discord bot token secure
+- Don't share your .env file
+- Regular updates are recommended
+- Check GitHub releases for latest versions
