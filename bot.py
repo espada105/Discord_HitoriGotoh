@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 import yt_dlp
+import nacl
+
+# source .venv/Scripts/activate bash에서
 
 # 환경 변수 로드
 load_dotenv()
